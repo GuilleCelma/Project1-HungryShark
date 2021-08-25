@@ -1,9 +1,13 @@
 //DEFINNING START BUTTON 
+
+
 const startButton = document.querySelector("#start")
 
 startButton.addEventListener("click", () =>{
     startGame()
+    
 })
+
 
 //SETING UP CANVAS
 const canvas = document.querySelector("canvas")
@@ -14,16 +18,43 @@ canvas.height = 700
 
 let canvasPosition = canvas.getBoundingClientRect()
 
-//START GAME FUNCTION 
+let enemieBoats =[]
+let finishGame = false
+let score = 0
+let foodCounter = 0
+let foodFish =[]
+let bubles =[]
+let intervalId= undefined
+
+
+//START GAME FUNCTION ////////////////////////////////////////////////////////
+
 
 const startGame = () =>{
-console.log("game running")
+    console.log("game running")
+    const canvas = document.querySelector("canvas")
+    const ctx = canvas.getContext("2d")
+    
+    const fish = new player()
+    canvas.width = 900
+    canvas.height = 700
 
-
-
-
-//CREATING BACKGROUND 
-
+    const reset = ()=>{
+        
+        finishGame = false
+        score = 0
+        foodCounter = 0
+        foodFish = []
+        enemieBoats = []
+        bubles = []
+        enemieMissiles = []
+        
+    }
+    
+    //const fish = new player() //DECLARING NEW PLAYER
+    
+    //CREATING BACKGROUND 
+    
 
 const backgroundLayer1  = new Image()
 backgroundLayer1.src = "/imgaes/background/PNG/2_game_background/layers/1.png"
@@ -54,27 +85,27 @@ const animateBackGround = () =>{
 
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////
+//HANDLE PAUSE AND RESTART 
 
-/*const bkg = new Image()
+//let finishGame = false
+//let score = 0
 
+const handleStatus = () =>{
 
-bkg.src = "/imgaes/background/PNG/1_game_background/1_game_background.png"
+    //if(score === 5){setTimeout(() =>{finishGame === true}, 0)}
+    if(foodCounter % 50 === 0){console.log("aqui")
+if(score === 30){setTimeout(() =>{finishGame = true,console.log(finishGame)
+ctx.clearRect(0,0, canvas.width,canvas.height)}, 4)}}
+    
+}
 
-setTimeout(() =>{ctx.drawImage(bkg, 0, 0, canvas.width, canvas.height)}, 100)*/
-
-
-let finishGame = false
-let score = 0
-
-
-
-const fish = new player() //DECLARING NEW PLAYER
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //SETTING UP A TIMER FOR FOOD TO SPAWN 
 
-let foodCounter = 0
-let foodFish =[]
+//let foodCounter = 0
+//let foodFish =[]
 
 const spawnFood = () =>{
     
@@ -99,7 +130,7 @@ const spawnFood = () =>{
 
 //SETTING UP A TIMER FOR ENEMY TO SPAWN 
 
-let enemieBoats =[]
+//let enemieBoats =[]
 
 const spawnEnemy = () =>{
     if(foodCounter % 1000 === 0 ){
@@ -126,7 +157,7 @@ const spawnEnemy = () =>{
 
 //SETTING UP A TIMER FOR ENTITIES TO SPAWN 
 
-let bubles =[]
+//let bubles =[]
 
 const spawnEntities = () =>{
     if(foodCounter % 50 === 0 ){
@@ -137,7 +168,7 @@ const spawnEntities = () =>{
     for ( let i = 0; i < bubles.length; i++){
         bubles[i].update()
         bubles[i].draw()
-        console.log(bubles.y)
+        
         if(bubles[i].delete === true) enemieBoats.splice( i, 1)
     }
 }
@@ -166,6 +197,7 @@ const areColliding = (player, element )=> {
     }
     if(playerAtLeft && playerAtRight && playerAbove && playerBelow && element.name === "missile"){
         element.drawExplosion()
+        setTimeout(() => {ctx.clearRect(0,0, canvas.width,canvas.height)}, 500)
         finishGame = true
         console.log("Game Over!")
     }
@@ -175,32 +207,29 @@ const areColliding = (player, element )=> {
 
     const animate = () =>{
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-        //ctx.drawImage(bkg, 0, 0, canvas.width, canvas.height)
+       
 
         //animate background
         animateBackGround()
+        drawBar(score)
         spawnEntities()
         fish.update()
         fish.sprite()
         fish.draw()
-
+        
         foodCounter++
         spawnFood()
         spawnEnemy()
+        handleStatus()
+
+        intervalId = requestAnimationFrame(animate)
+        if(finishGame === true) cancelAnimationFrame(intervalId)
         
-        ctx.fillText(`${score} / 30`, 100, 100)
-        let myReq = requestAnimationFrame(animate)
-        if(score === 30){console.log("you win!"),finishGame = true}
-        if(finishGame === true ){
-            window.cancelAnimationFrame(myReq);
-            ctx.fillText("Game Over!", canvas.width / 2, canvas.height / 2)
-        }
         
     }
 
     animate()
-
-
+    reset()
    
 }
 

@@ -23,7 +23,6 @@ class Missile{
         ctx.drawImage(this.img,this.X,this.Y,this.width,this.height)
     }
     drawExplosion(){
-        console.log("explosion")
         ctx.drawImage(this.img2, this.X-110, this.Y-75, 300, 300)
     }
 }
