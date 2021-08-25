@@ -20,13 +20,15 @@ class player {
         this.X = canvas.width / 2
         this.Y = canvas.height / 2
         this.sizeModifier = 1
-        this.width = 100
+        this.width = 120
         this.height = 70
-        this.rad = 50 * this.sizeModifier
+        this.angle = 0
 
 
-        this.img1 = new Image()
-        this.img1.src= "/imgaes/shark/pngs/animations/swim-snapping/"
+        this.playerLeft = new Image()
+        this.playerLeft.src= "/imgaes/shark/pngs/animations/swim-not-snapping/shark2.png"
+        this.playerRight = new Image()
+        this.playerRight.src = "/imgaes/shark/pngs/animations/swim-snapping/swim-snapping-1671px-by-860px-per-frame.png"
         this.spriteWidth = 1671
         this.spriteHeight = 860
         this.frame = 0
@@ -34,14 +36,16 @@ class player {
         this.FrameY =0
         this.maxFrame = 0
         this.gameFrame = 0
-        this.staggerFrames = 10
+        this.staggerFrames = 13
        
 
     }
     update(){
-        const directionX = (this.X -mouse.x)  + this.rad // diference beetwen pointer and player in the X axis
-        const directionY = (this.Y -mouse.y ) + this.rad// diference beetwen pointer and player in the Y axis
+        const directionX = (this.X -mouse.x)  + this.width/2// diference beetwen pointer and player in the X axis
+        const directionY = (this.Y -mouse.y)  + this.height/2// diference beetwen pointer and player in the Y axis
         
+        let theta = Math.atan2(directionY,directionX)
+        this.angle = theta
         if(mouse.x !== this.X){ // if possition of mouse and possition of player are  not equal...
              this.X -= directionX / 27 //reduce the diference  in this rate
             }
@@ -72,7 +76,11 @@ class player {
     }
     draw(){
         
-        ctx.drawImage(this.img1, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth , this.spriteHeight, this.X, this.Y, this.width, this.height)
+        if(this.X  <=  mouse.x){
+        ctx.drawImage(this.playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth , this.spriteHeight, this.X, this.Y, this.width, this.height)
+        }else{
+            ctx.drawImage(this.playerRight, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth , this.spriteHeight, this.X, this.Y, this.width, this.height)
+        }
         
     }
 }
