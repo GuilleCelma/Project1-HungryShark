@@ -43,12 +43,12 @@ const startGame = () =>{
     canvas.height = 700
 
     const explosion = new Audio()
-    explosion.src = "/audio/35462__jobro__explosion-5.wav"
+    explosion.src = "audio/35462__jobro__explosion-5.wav"
     const bite = new Audio()
-    bite.src = "/audio/353067__jofae__bite-cartoon-style.mp3"
+    bite.src = "audio/353067__jofae__bite-cartoon-style.mp3"
 
     const winSound = new Audio()
-    winSound.src = "/audio/527650__fupicat__winsquare.wav"
+    winSound.src = "audio/527650__fupicat__winsquare.wav"
 
     const reset = ()=>{
         
