@@ -9,7 +9,7 @@ class Enemy{
         this.heigth = 150
         this.missileTimer = 0
         this.delete = false
-        this.srcArray = ["/imgaes/submarine/pngs/black/large_black_sub.png","/imgaes//submarine/pngs/black_pirate/large_black_pirate_sub.png", "/imgaes/submarine/pngs/yellow_red/large_yellow_sub.png"]
+        this.srcArray = ["https://guillecelma.github.io/Project1-HungryShark/imgaes/submarine/pngs/black/large_black_sub.png","https://guillecelma.github.io/Project1-HungryShark/imgaes/submarine/pngs/black_pirate/large_black_pirate_sub.png", "https://guillecelma.github.io/Project1-HungryShark/imgaes/submarine/pngs/yellow_red/large_yellow_sub.png"]
         this.img1 = new Image()
         this.img1.src =this.srcArray[Math.floor(Math.random() * this.srcArray.length)]
     

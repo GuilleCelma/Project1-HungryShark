@@ -12,7 +12,7 @@ class Food {
         this.delete = false
 
         this.img = new Image()
-        this.srcArray =["/imgaes/fish2/spritesheets/__blue_cartoon_fish_swim.png","/imgaes/fish2/spritesheets/__orange_cartoon_fish_01_swim.png","/imgaes/fish2/spritesheets/__yellow_cartoon_fish_01_swim.png", "/imgaes/fish2/spritesheets/__green_cartoon_fish_01_swim.png","/imgaes/fish2/spritesheets/__pink_cartoon_fish_01_swim.png","/imgaes/fish2/spritesheets/__red_cartoon_fish_01_swim.png","/imgaes/fish1/spritesheets/resized2.png", "/imgaes/fish1/spritesheets/resized1.png","/imgaes/fish1/spritesheets/resized3.png","/imgaes/fish1/spritesheets/resized4.png"]
+        this.srcArray =["https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/fish2/spritesheets/__blue_cartoon_fish_swim.png","https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/fish2/spritesheets/__orange_cartoon_fish_01_swim.png","https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/fish2/spritesheets/__yellow_cartoon_fish_01_swim.png", "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/fish2/spritesheets/__green_cartoon_fish_01_swim.png","https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main//imgaes/fish2/spritesheets/__pink_cartoon_fish_01_swim.png","https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/fish2/spritesheets/__red_cartoon_fish_01_swim.png","https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/fish1/spritesheets/resized2.png", ]
         this.img.src= this.srcArray[Math.floor(Math.random() * this.srcArray.length)]
         this.spriteWidth = 418
         this.spriteHeight = 397

@@ -1,22 +1,22 @@
 const drawBar = (score) =>{
 
     const icon = new Image()
-    icon.src = "/imgaes/bar/pngs/blue/meter_icon_holder_blue.png"
+    icon.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/bar/pngs/blue/meter_icon_holder_blue.png"
     const spine = new Image()
-    spine.src = "/imgaes/bar/pngs/icons/xp.png"
+    spine.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/bar/pngs/icons/xp.png"
     const barStart = new Image()
-    barStart.src = "/imgaes/bar/pngs/blue/meter_bar_holder_left_edge_blue.png"
+    barStart.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/bar/pngs/blue/meter_bar_holder_left_edge_blue.png"
     const barMiddle = new Image()
-    barMiddle.src = "/imgaes/bar/pngs/blue/meter_bar_holder_center-repeating_blue.png"
+    barMiddle.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/bar/pngs/blue/meter_bar_holder_center-repeating_blue.png"
     const barEnd = new Image()
-    barEnd.src = "/imgaes/bar/pngs/blue/meter_bar_holder_right_edge_blue.png"
+    barEnd.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/bar/pngs/blue/meter_bar_holder_right_edge_blue.png"
     
     const innerBarStart = new Image()
-    innerBarStart.src = "/imgaes/bar/pngs/blue/meter_bar_left_edge_blue.png"
+    innerBarStart.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/bar/pngs/blue/meter_bar_left_edge_blue.png"
     const innerBarMiddle = new Image()
-    innerBarMiddle.src = "/imgaes/bar/pngs/blue/meter_bar_center-repeating_blue.png"
+    innerBarMiddle.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/bar/pngs/blue/meter_bar_center-repeating_blue.png"
     const barText = new Image()
-    barText.src = "/imgaes/bar/pngs/blue/meter_text_background_blue.png"
+    barText.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/bar/pngs/blue/meter_text_background_blue.png"
 
     
     

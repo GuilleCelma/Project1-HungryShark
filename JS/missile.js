@@ -8,10 +8,10 @@ class Missile{
         this.delete = false
 
         this.img = new Image()
-        this.img.src = "/imgaes/bombs 2/PNG/Let/Bomb.png"
+        this.img.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/bombs%202/PNG/Let/Bomb.png"
 
         this.img2 = new Image()
-        this.img2.src = "/imgaes/explosion/fireballs_explosion/meteor_side_medium/imgs_explode/img_26.png"
+        this.img2.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/explosion/fireballs_explosion/meteor_side_medium/imgs_explode/img_26.png"
     }
 
     update(){

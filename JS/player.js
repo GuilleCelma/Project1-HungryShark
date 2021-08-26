@@ -25,9 +25,9 @@ class player {
     
 
         this.playerLeft = new Image()
-        this.playerLeft.src= "/imgaes/shark/pngs/animations/swim-not-snapping/resizedright.png"
+        this.playerLeft.src= "https://guillecelma.github.io/Project1-HungryShark/imgaes/shark/pngs/animations/swim-not-snapping/resizedright.png"
         this.playerRight = new Image()
-        this.playerRight.src = "/imgaes/shark/pngs/resized left.png"
+        this.playerRight.src = "https://guillecelma.github.io/Project1-HungryShark/imgaes/shark/pngs/resized left.png"
         this.spriteWidth = 498
         this.spriteHeight = 245.25
         this.frame = 0

@@ -7,7 +7,7 @@ class Bubble{
     this.height= 12 * this.size
     this.delete = false
     this.img = new Image()
-    this.img.src="/imgaes/Bubbles/bubble_pop_underwater/bubble_pop_under_water_01.png"
+    this.img.src="https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/imgaes/Bubbles/bubble_pop_underwater/bubble_pop_under_water_01.png"
     }
 
     update(){
