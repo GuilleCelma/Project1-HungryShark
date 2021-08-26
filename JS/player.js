@@ -22,21 +22,20 @@ class player {
         this.sizeModifier = 1
         this.width = 120
         this.height = 70
-        this.angle = 0
-
+    
 
         this.playerLeft = new Image()
-        this.playerLeft.src= "/imgaes/shark/pngs/animations/swim-not-snapping/shark2.png"
+        this.playerLeft.src= "/imgaes/shark/pngs/animations/swim-not-snapping/resizedright.png"
         this.playerRight = new Image()
-        this.playerRight.src = "/imgaes/shark/pngs/animations/swim-snapping/swim-snapping-1671px-by-860px-per-frame.png"
-        this.spriteWidth = 1671
-        this.spriteHeight = 860
+        this.playerRight.src = "/imgaes/shark/pngs/resized left.png"
+        this.spriteWidth = 498
+        this.spriteHeight = 245.25
         this.frame = 0
         this.frameX = 0
         this.FrameY =0
         this.maxFrame = 0
         this.gameFrame = 0
-        this.staggerFrames = 13
+        this.slower = 13
        
 
     }
@@ -44,8 +43,7 @@ class player {
         const directionX = (this.X -mouse.x)  + this.width/2// diference beetwen pointer and player in the X axis
         const directionY = (this.Y -mouse.y)  + this.height/2// diference beetwen pointer and player in the Y axis
         
-        let theta = Math.atan2(directionY,directionX)
-        this.angle = theta
+        
         if(mouse.x !== this.X){ // if possition of mouse and possition of player are  not equal...
              this.X -= directionX / 27 //reduce the diference  in this rate
             }
@@ -58,7 +56,7 @@ class player {
 
     sprite (){
 
-        if(this.gameFrame % this.staggerFrames === 0){
+        if(this.gameFrame % this.slower === 0){
             this.frame++
             if(this.frame >= 16)this.frame = 0 
     

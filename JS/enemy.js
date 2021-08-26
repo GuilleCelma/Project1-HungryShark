@@ -5,12 +5,13 @@ class Enemy{
     constructor(){
         this.X = canvas.width  + 100
         this.Y = 100
-        this.width = 200
+        this.width = 250
         this.heigth = 150
         this.missileTimer = 0
         this.delete = false
+        this.srcArray = ["/imgaes/submarine/pngs/black/large_black_sub.png","/imgaes//submarine/pngs/black_pirate/large_black_pirate_sub.png", "/imgaes/submarine/pngs/yellow_red/large_yellow_sub.png"]
         this.img1 = new Image()
-        this.img1.src ="/imgaes/enemy/pngs/blue.png"
+        this.img1.src =this.srcArray[Math.floor(Math.random() * this.srcArray.length)]
     
     }
 

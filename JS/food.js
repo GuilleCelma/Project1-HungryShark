@@ -21,7 +21,7 @@ class Food {
         this.FrameY =0
         this.maxFrame = 4
         this.gameFrame = 0
-        this.staggerFrames = 7
+        this.slower= 7
 }       
 
 update(){
@@ -30,7 +30,7 @@ update(){
     this.gameFrame++
 }
 sprite (){
-    if(this.gameFrame % this.staggerFrames === 0){
+    if(this.gameFrame % this.slower === 0){
         this.frame++
         if(this.frame >= 12)this.frame = 0 
 
@@ -45,7 +45,7 @@ sprite (){
     }
 }
 draw(){
-    ctx.drawImage(this.img, this.frameX * this.spriteWidth ,  this.FrameY * this.spriteHeight,this.spriteWidth ,this.spriteHeight, this.X, this.Y, this.width ,this.height , )
+    ctx.drawImage(this.img, this.frameX * this.spriteWidth ,  this.FrameY * this.spriteHeight,this.spriteWidth ,this.spriteHeight, this.X, this.Y, this.width ,this.height)
 }
 
 }

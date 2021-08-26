@@ -5,14 +5,16 @@ const startButton = document.querySelector("#start")
 
 startButton.addEventListener("click", () =>{
     startGame()
-    
+    startButton.style.backgroundColor = "rgb(3, 230, 255)"
+    startButton.style.color = "black"
+    startButton.textContent = "Play Again"
 })
 
 
 //SETING UP CANVAS
 const canvas = document.querySelector("canvas")
 const ctx = canvas.getContext("2d")
-
+ctx.imageSmoothingEnabled = false
 canvas.width = 900
 canvas.height = 700
 
@@ -32,6 +34,7 @@ let intervalId= undefined
 
 const startGame = () =>{
     console.log("game running")
+    console.log(finishGame)
     const canvas = document.querySelector("canvas")
     const ctx = canvas.getContext("2d")
     
@@ -50,6 +53,7 @@ const startGame = () =>{
         enemieMissiles = []
         
     }
+    reset()
     
     //const fish = new player() //DECLARING NEW PLAYER
     
@@ -73,6 +77,12 @@ backgroundLayer4.src = "/imgaes/background/PNG/4_game_background/layers/4.png"
 const layer4 = new Layer(backgroundLayer4,1,5 )
 
 
+const gameOverImg = new Image()
+gameOverImg.src = "/imgaes/Gamestatus/output-onlinepngtools (7).png"
+
+const win = new Image()
+win.src = "/imgaes/Gamestatus/youwin.png"
+
 const animateBackGround = () =>{
     layer1.update()
     layer1.draw()
@@ -93,11 +103,14 @@ const animateBackGround = () =>{
 
 const handleStatus = () =>{
 
-    //if(score === 5){setTimeout(() =>{finishGame === true}, 0)}
-    if(foodCounter % 50 === 0){console.log("aqui")
-if(score === 30){setTimeout(() =>{finishGame = true,console.log(finishGame)
-ctx.clearRect(0,0, canvas.width,canvas.height)}, 4)}}
-    
+
+    if(foodCounter % 50 === 0){
+
+        if(score === 30){
+            finishGame = true,
+            setTimeout(() =>{ctx.drawImage(win,0,0, canvas.width,canvas.height)}, 500)
+        }
+    }   
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -112,7 +125,7 @@ const spawnFood = () =>{
     if(foodCounter % 100 === 0 ){
         foodFish.push(new Food())
     }
-
+    
     for ( let i = 0; i < foodFish.length; i++){
         foodFish[i].update()
         foodFish[i].sprite()
@@ -197,7 +210,11 @@ const areColliding = (player, element )=> {
     }
     if(playerAtLeft && playerAtRight && playerAbove && playerBelow && element.name === "missile"){
         element.drawExplosion()
-        setTimeout(() => {ctx.clearRect(0,0, canvas.width,canvas.height)}, 500)
+        setTimeout(() => {
+            ctx.fillStyle = "black"
+            ctx.fillRect(0,0,canvas.width,canvas.height)
+            ctx.drawImage(gameOverImg,0,0, canvas.width,canvas.height)
+        }, 500)
         finishGame = true
         console.log("Game Over!")
     }
@@ -212,15 +229,16 @@ const areColliding = (player, element )=> {
         //animate background
         animateBackGround()
         drawBar(score)
-        spawnEntities()
+        fish.draw()
         fish.update()
         fish.sprite()
-        fish.draw()
         
+        spawnEntities()
         foodCounter++
         spawnFood()
         spawnEnemy()
         handleStatus()
+
 
         intervalId = requestAnimationFrame(animate)
         if(finishGame === true) cancelAnimationFrame(intervalId)
@@ -229,7 +247,7 @@ const areColliding = (player, element )=> {
     }
 
     animate()
-    reset()
+
    
 }
 
