@@ -42,6 +42,14 @@ const startGame = () =>{
     canvas.width = 900
     canvas.height = 700
 
+    const explosion = new Audio()
+    explosion.src = "/audio/35462__jobro__explosion-5.wav"
+    const bite = new Audio()
+    bite.src = "/audio/353067__jofae__bite-cartoon-style.mp3"
+
+    const winSound = new Audio()
+    winSound.src = "/audio/527650__fupicat__winsquare.wav"
+
     const reset = ()=>{
         
         finishGame = false
@@ -55,10 +63,9 @@ const startGame = () =>{
     }
     reset()
     
-    //const fish = new player() //DECLARING NEW PLAYER
+   
     
-    //CREATING BACKGROUND 
-    
+ //CREATING BACKGROUND   
 
 const backgroundLayer1  = new Image()
 backgroundLayer1.src = "https://guillecelma.github.io/Project1-HungryShark/imgaes/background/PNG/2_game_background/layers/1.png"
@@ -108,9 +115,14 @@ const handleStatus = () =>{
 
         if(score === 30){
             finishGame = true,
+            winSound.play(),
             setTimeout(() =>{ctx.drawImage(win,0,0, canvas.width,canvas.height)}, 500)
+
         }
-    }   
+    }  
+
+    
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -185,6 +197,8 @@ const spawnEntities = () =>{
         if(bubles[i].delete === true) enemieBoats.splice( i, 1)
     }
 }
+
+
  
 /////////////////////////////////////////////////////////////////
 
@@ -203,6 +217,7 @@ const areColliding = (player, element )=> {
     
         player.width += 2.5
         player.height += 2.5
+        bite.play()
         element.delete = true
         score++
 
@@ -210,12 +225,14 @@ const areColliding = (player, element )=> {
     }
     if(playerAtLeft && playerAtRight && playerAbove && playerBelow && element.name === "missile"){
         element.drawExplosion()
+        explosion.play()
         setTimeout(() => {
             ctx.fillStyle = "black"
             ctx.fillRect(0,0,canvas.width,canvas.height)
             ctx.drawImage(gameOverImg,0,0, canvas.width,canvas.height)
         }, 500)
         finishGame = true
+        //mainTheme.pause()
         console.log("Game Over!")
     }
 }
@@ -238,7 +255,7 @@ const areColliding = (player, element )=> {
         spawnFood()
         spawnEnemy()
         handleStatus()
-
+        
 
         intervalId = requestAnimationFrame(animate)
         if(finishGame === true) cancelAnimationFrame(intervalId)
