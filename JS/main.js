@@ -51,10 +51,14 @@ const startGame = () =>{
     winSound.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/audio/527650__fupicat__winsquare.wav"
     
     const startSound = new Audio()
-    startSound.src = "ttps://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/audio/243020__plasterbrain__game-start.ogg"
+    startSound.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/audio/243020__plasterbrain__game-start.ogg"
+
+    const main = new Audio()
+    main.src = "/audio/WhatsApp Audio 2021-08-26 at 23.29.36.mpeg"
     
 
     startSound.play()
+    main.play()
 
     const reset = ()=>{
         
@@ -264,7 +268,8 @@ const areColliding = (player, element )=> {
         
 
         intervalId = requestAnimationFrame(animate)
-        if(finishGame === true) cancelAnimationFrame(intervalId)
+        if(finishGame === true){cancelAnimationFrame(intervalId),
+        main.pause()}
         
         
     }
