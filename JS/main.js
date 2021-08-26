@@ -51,7 +51,7 @@ const startGame = () =>{
     winSound.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/audio/527650__fupicat__winsquare.wav"
     
     const startSound = new Audio()
-    startSound.src = "/audio/243020__plasterbrain__game-start.ogg"
+    startSound.src = "ttps://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/audio/243020__plasterbrain__game-start.ogg"
     
 
     startSound.play()
