@@ -54,7 +54,7 @@ const startGame = () =>{
     startSound.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/audio/243020__plasterbrain__game-start.ogg"
 
     const main = new Audio()
-    main.src = "/audio/WhatsApp Audio 2021-08-26 at 23.29.36.mpeg"
+    main.src = "https://raw.githubusercontent.com/GuilleCelma/Project1-HungryShark/main/audio/maintheme.mpeg"
     
 
     startSound.play()
