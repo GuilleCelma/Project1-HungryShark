@@ -33,8 +33,7 @@ let intervalId= undefined
 
 
 const startGame = () =>{
-    console.log("game running")
-    console.log(finishGame)
+  
     const canvas = document.querySelector("canvas")
     const ctx = canvas.getContext("2d")
     
@@ -231,7 +230,6 @@ const areColliding = (player, element )=> {
         element.delete = true
         score++
 
-        console.log("collision")
     }
     if(playerAtLeft && playerAtRight && playerAbove && playerBelow && element.name === "missile"){
         element.drawExplosion()
@@ -242,8 +240,7 @@ const areColliding = (player, element )=> {
             ctx.drawImage(gameOverImg,0,0, canvas.width,canvas.height)
         }, 500)
         finishGame = true
-        //mainTheme.pause()
-        console.log("Game Over!")
+        
     }
 }
 

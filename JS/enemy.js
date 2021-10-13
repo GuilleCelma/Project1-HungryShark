@@ -27,7 +27,7 @@ class Enemy{
 
     fireMissile(){
         enemieMissiles.push(new Missile(this.X, this.Y))
-        console.log("FIRE!")
+       
         
     }
 
