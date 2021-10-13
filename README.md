@@ -5,6 +5,7 @@
 
 
 ## Demo
+[Try It!](https://guillecelma.github.io/Project1-HungryShark/)
 [![preview-2.png](https://i.postimg.cc/FHz1Xv14/preview-2.png)](https://postimg.cc/hXFKVH9y)
 
   
