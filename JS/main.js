@@ -114,8 +114,7 @@ const animateBackGround = () =>{
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //HANDLE PAUSE AND RESTART 
 
-//let finishGame = false
-//let score = 0
+
 
 const handleStatus = () =>{
 
@@ -130,7 +129,6 @@ const handleStatus = () =>{
         }
     }  
 
-    
 
 }
 
@@ -138,8 +136,7 @@ const handleStatus = () =>{
 
 //SETTING UP A TIMER FOR FOOD TO SPAWN 
 
-//let foodCounter = 0
-//let foodFish =[]
+
 
 const spawnFood = () =>{
     
@@ -191,7 +188,7 @@ const spawnEnemy = () =>{
 
 //SETTING UP A TIMER FOR ENTITIES TO SPAWN 
 
-//let bubles =[]
+
 
 const spawnEntities = () =>{
     if(foodCounter % 50 === 0 ){
